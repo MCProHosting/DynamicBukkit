@@ -1,0 +1,7 @@
+name: DynamicBukkit
+version: ${project.version}
+authors: [Favorlock]
+main: com.mcprohosting.plugins.dynamicbukkit.DynamicBukkit
+
+commands:
+permissions:
