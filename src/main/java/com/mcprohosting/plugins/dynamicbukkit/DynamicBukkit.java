@@ -1,7 +1,6 @@
 package com.mcprohosting.plugins.dynamicbukkit;
 
 import com.mcprohosting.plugins.dynamicbukkit.config.MainConfig;
-import com.mcprohosting.plugins.dynamicbukkit.data.NetDelegate;
 import com.mcprohosting.plugins.dynamicbukkit.data.NetHandler;
 import com.mcprohosting.plugins.dynamicbukkit.server.HeartbeatTask;
 import org.bukkit.Bukkit;
@@ -17,11 +16,15 @@ public class DynamicBukkit extends JavaPlugin {
     private JedisPool jedis;
     private NetHandler dispatch;
 
+    private DynamicPluginLoader pluginLoader;
+
     public void onEnable() {
         plugin = this;
         config = new MainConfig(this);
 
         initJedis();
+
+        pluginLoader = new DynamicPluginLoader();
     }
 
     public static DynamicBukkit getPlugin() {
