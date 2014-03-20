@@ -1,6 +1,7 @@
 package com.mcprohosting.plugins.dynamicbukkit.data;
 
 import com.mcprohosting.plugins.dynamicbukkit.DynamicBukkit;
+import org.bukkit.Bukkit;
 import org.json.JSONException;
 import org.json.JSONObject;
 import redis.clients.jedis.JedisPubSub;
@@ -14,6 +15,8 @@ public class NetDelegate extends JedisPubSub implements Runnable {
     public NetDelegate() {
         instance = this;
         channels = new CopyOnWriteArrayList<>();
+
+        Bukkit.getScheduler().runTaskAsynchronously(DynamicBukkit.getPlugin(), new ChannelSubscriber("heartbeat"));
     }
 
     @Override
