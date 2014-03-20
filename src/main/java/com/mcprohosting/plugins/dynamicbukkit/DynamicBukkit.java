@@ -3,11 +3,17 @@ package com.mcprohosting.plugins.dynamicbukkit;
 import com.mcprohosting.plugins.dynamicbukkit.config.MainConfig;
 import com.mcprohosting.plugins.dynamicbukkit.data.NetHandler;
 import com.mcprohosting.plugins.dynamicbukkit.server.HeartbeatTask;
+import com.mcprohosting.plugins.dynamicbukkit.server.ServerHandler;
+import com.mcprohosting.plugins.dynamicbukkit.server.ServerHeartbeatHandler;
+import com.mcprohosting.plugins.dynamicbukkit.server.ServerInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class DynamicBukkit extends JavaPlugin {
 
@@ -15,6 +21,7 @@ public class DynamicBukkit extends JavaPlugin {
     private MainConfig config;
     private JedisPool jedis;
     private NetHandler dispatch;
+    private ServerHeartbeatHandler beatHandler;
 
     private DynamicPluginLoader pluginLoader;
 
@@ -43,6 +50,8 @@ public class DynamicBukkit extends JavaPlugin {
         }
 
         dispatch = new NetHandler();
+        getDispatch().registerTasks(new ServerHandler());
+        beatHandler = new ServerHeartbeatHandler();
         Bukkit.getScheduler().runTask(this, new HeartbeatTask());
     }
 
@@ -67,6 +76,14 @@ public class DynamicBukkit extends JavaPlugin {
 
     public MainConfig getConf() {
         return config;
+    }
+
+    public ConcurrentMap<String, ServerInfo> getServerInfo() {
+        return new ConcurrentHashMap<>(ServerInfo.getServerInfos());
+    }
+
+    public ServerHeartbeatHandler getBeatHandler() {
+        return beatHandler;
     }
 
 }
