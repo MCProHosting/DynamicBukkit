@@ -17,13 +17,13 @@ public class ServerHeartbeatHandler implements Runnable {
     /**
      * Stores previous heartbeats.
      */
-    private Map<ServerInfo, Heartbeat> heartbeats;
+    private static Map<ServerInfo, Heartbeat> heartbeats;
 
     /**
      * Creates a new handler, and schedules it in the BungeeCord scheduler.
      */
     public ServerHeartbeatHandler() {
-        this.heartbeats = new HashMap<>();
+        heartbeats = new HashMap<>();
         schedule();
     }
 
@@ -62,6 +62,11 @@ public class ServerHeartbeatHandler implements Runnable {
      */
     public void schedule() {
         Bukkit.getScheduler().scheduleSyncDelayedTask(DynamicBukkit.getPlugin(), this, 30 * 20);
+    }
+
+    public static long getTimeHeartbeat(ServerInfo info) {
+        Heartbeat heartbeat = heartbeats.get(info);
+        return heartbeat.getTimeHeartbeat();
     }
 
 }
