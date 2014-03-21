@@ -151,7 +151,7 @@
         <dependency>
             <groupId>com.gmail.favorlock</groupId>
             <artifactId>CommonUtils</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
