@@ -17,6 +17,7 @@ public class NetDelegate extends JedisPubSub implements Runnable {
         channels = new CopyOnWriteArrayList<>();
 
         Bukkit.getScheduler().runTaskAsynchronously(DynamicBukkit.getPlugin(), new ChannelSubscriber("heartbeat"));
+        Bukkit.getScheduler().runTaskAsynchronously(DynamicBukkit.getPlugin(), new ChannelSubscriber("dynamicbukkit"));
     }
 
     @Override
