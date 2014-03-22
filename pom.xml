@@ -6,7 +6,7 @@
 
     <groupId>com.mcprohosting</groupId>
     <artifactId>DynamicBukkit</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.2-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -151,7 +151,7 @@
         <dependency>
             <groupId>com.gmail.favorlock</groupId>
             <artifactId>CommonUtils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.2.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
