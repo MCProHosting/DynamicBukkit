@@ -69,4 +69,16 @@ public class ServerHeartbeatHandler implements Runnable {
         return heartbeat.getTimeHeartbeat();
     }
 
+    /**
+     * Get players online
+     */
+    public static Integer getPlayersOnline() {
+        Collection<Heartbeat> values = DynamicBukkit.getPlugin().getBeatHandler().heartbeats.values();
+        Integer count = 0;
+        for (Heartbeat heartbeat : values) {
+            count += heartbeat.getPlayers().size();
+        }
+        return count;
+    }
+
 }
