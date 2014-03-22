@@ -64,6 +64,10 @@ public class ServerHeartbeatHandler implements Runnable {
         Bukkit.getScheduler().scheduleSyncDelayedTask(DynamicBukkit.getPlugin(), this, 30 * 20);
     }
 
+    public static Heartbeat getHeartbeat(ServerInfo info) {
+        return heartbeats.get(info);
+    }
+
     public static long getTimeHeartbeat(ServerInfo info) {
         Heartbeat heartbeat = heartbeats.get(info);
         return heartbeat.getTimeHeartbeat();
