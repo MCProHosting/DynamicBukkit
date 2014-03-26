@@ -11,7 +11,7 @@ import java.io.File;
 public class MainConfig extends ConfigModel {
 
     public MainConfig(Plugin plugin) {
-        CONFIG_HEADER = "Dynamic Bungee Configuration!";
+        CONFIG_HEADER = "Dynamic Bukkit Configuration!";
         CONFIG_FILE = new File(plugin.getDataFolder(), "config.yml");
 
         invoke();
