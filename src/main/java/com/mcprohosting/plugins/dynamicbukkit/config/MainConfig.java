@@ -1,6 +1,6 @@
 package com.mcprohosting.plugins.dynamicbukkit.config;
 
-import com.gmail.favorlock.configuration.ConfigModel;
+import com.gmail.favorlock.commonutils.configuration.ConfigModel;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.Plugin;
 import redis.clients.jedis.JedisPool;
