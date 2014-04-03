@@ -109,7 +109,7 @@
         <dependency>
             <groupId>com.gmail.favorlock</groupId>
             <artifactId>CommonUtils</artifactId>
-            <version>0.2.4-SNAPSHOT</version>
+            <version>0.2.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
