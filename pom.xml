@@ -86,7 +86,7 @@
 
         <repository>
             <id>uicraft-repo</id>
-            <url>http://ci.uicraft.com/plugin/repository/project/CommonUtils/LastSuccessful/repository/</url>
+            <url>http://ci.uicraft.com/plugin/repository/everything/</url>
         </repository>
     </repositories>
 
